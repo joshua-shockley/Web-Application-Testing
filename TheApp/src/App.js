@@ -16,6 +16,16 @@ function App() {
     setFouls(2)
   }
 
+  function theFoul(){
+    setFouls(fouls +1);
+    if(strikes === 0){
+      setStrikes(1);
+    } 
+    if(strikes === 1){
+      setStrikes(2);
+    }
+  }
+
   function theHit(){
     setStrikes(0);
     setBalls(0);
@@ -39,10 +49,18 @@ function App() {
             <div className="view-stat" >{fouls}</div>
           </div>
         <div className="the-dashboard" >
-            <button className="clickity" onClick={() => setStrikes(strikes + 1)}>STRIKES</button>
-            <button className="clickity" onClick={() => setBalls(balls + 1)}>BALLS</button>
             <button className="clickity" 
-            onClick={() => setFouls(fouls + 1)}
+            onDoubleClick={theHit}
+            onClick={() => setStrikes(strikes + 1)}
+            >
+            STRIKES</button>
+            <button className="clickity" 
+            onDoubleClick={theHit}
+            onClick={() => setBalls(balls + 1)}
+            >
+            BALLS</button>
+            <button className="clickity" 
+            onClick={theFoul}
             onDoubleClick={()=> setFouls(0)}
             >FOULS</button>
             <button className="clickity" onClick={theHit}>HIT</button>
