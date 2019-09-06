@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
-
+import Display from "./components/Display.js";
+import Dashboard from './components/Dashboard';
 
 export const add = (a,b)=> a+b;
+
 
 export default function App() {
   const [strikes, setStrikes] = useState(0);
@@ -40,34 +42,26 @@ export default function App() {
       <header className="App-header">
         <h1>The Stats</h1>
       </header>
-      <div className="the-display label" >
+
+          <div className="the-display label" >
             <div className="view-stat-title" >Strikes</div>
             <div className="view-stat-title" >Balls</div>
             <div className="view-stat-title" >Fouls</div>
           </div>
-
-          <div className="the-display" >
-            <div className="view-stat" >{strikes}</div>
-            <div className="view-stat" >{balls}</div>
-            <div className="view-stat" >{fouls}</div>
-          </div>
-        <div className="the-dashboard" >
-            <button className="clickity" 
-            onDoubleClick={theHit}
-            onClick={() => setStrikes(strikes + 1)}
-            >
-            STRIKES</button>
-            <button className="clickity" 
-            onDoubleClick={theHit}
-            onClick={() => setBalls(balls + 1)}
-            >
-            BALLS</button>
-            <button className="clickity" 
-            onClick={theFoul}
-            onDoubleClick={()=> setFouls(0)}
-            >FOULS</button>
-            <button className="clickity" onClick={theHit}>HIT</button>
-        </div>
+          <Display 
+          strikes={strikes}
+          fouls={fouls}
+          balls={balls}
+          />
+          <Dashboard 
+          theHit={theHit}
+          strikes={strikes}
+          balls={balls}
+          theFoul={theFoul}
+          setStrikes={setStrikes}
+          setBalls={setBalls}
+          setFouls={setFouls}
+          />
     </div>
   );
 }

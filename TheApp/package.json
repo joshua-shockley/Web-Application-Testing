@@ -12,7 +12,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "jest --watchAll ",
+        "test": "react-scripts test ",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
@@ -32,7 +32,5 @@
     },
     "main": "index.js",
     "license": "MIT",
-    "devDependencies": {
-        "jest": "^24.9.0"
-    }
+    "devDependencies": {}
 }

@@ -1,24 +1,40 @@
 import React from 'react';
+
 import { render } from '@testing-library/react';
-import App, { theHit, theFoul } from './App';
+import App, { theHit } from './App';
 
-import { add } from './App.js';
 
-const help = require('./App');
-
-describe('adds two integers', () => {
-    it('adds the numbers', () => {
-        expect(add(1, 3)).toBe(4);
-    });
+test('rendering app component looking for strikes', () => {
+    const app = render( < App / > );
+    app.getByText(/STRIKES/)
 
 });
 
+test('can we find the fouls', () => {
+    const theFouls = render( < App / > );
+    theFouls.getByText(/FOULS/)
+});
 
-describe('renders the page without crashing that turd..lol', () => {
+{ /* test('') */ }
 
 
-    it('renders without crashing', () => {
-        render( < App / > );
+
+{
+    /* describe('adds two integers', () => { 
+        it('adds the numbers', () => {
+            const blah = render( < App / > )
+            expect(add(1, 3)).toBe(4);
+        });
+
     });
 
-});
+
+    describe('renders the page without crashing that turd..lol', () => {
+
+
+        it('renders without crashing', () => {
+            render( < App / > );
+        });
+
+    }); */
+}
