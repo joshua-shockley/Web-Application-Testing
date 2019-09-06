@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
 
-function App() {
+
+export const add = (a,b)=> a+b;
+
+export default function App() {
   const [strikes, setStrikes] = useState(0);
   const [ balls, setBalls] = useState(0);
   const [fouls, setFouls] = useState(0);
@@ -69,4 +72,4 @@ function App() {
   );
 }
 
-export default App;
+
